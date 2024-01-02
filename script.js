@@ -27,5 +27,22 @@ video.addEventListener('play', () => {
     faceapi.draw.drawDetections(canvas, resizedDetections)
     faceapi.draw.drawFaceLandmarks(canvas, resizedDetections)
     faceapi.draw.drawFaceExpressions(canvas, resizedDetections)
+    
+    const firstDetection = detections[0];
+
+    if (firstDetection && firstDetection.expressions) {
+      // Iterate over the emotions
+      for (const emotion in firstDetection.expressions) {
+        const emotionValue = firstDetection.expressions[emotion];
+    
+        // Check if the value is between 0.8 and 1
+        if (emotionValue > 0.8 && emotionValue < 1) {
+          // Print the emotion name
+          console.log("Emotion:", emotion);
+        }
+      }
+    }
+    
   }, 100)
 })
+
