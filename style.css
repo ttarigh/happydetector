@@ -12,3 +12,6 @@ body {
 canvas {
     position: absolute
 }
+video{
+    /* display:none; */
+}
